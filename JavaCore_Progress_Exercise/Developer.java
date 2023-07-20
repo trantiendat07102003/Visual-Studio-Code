@@ -1,4 +1,4 @@
-package JavaOOP;
+package JavaCore_Progress_Exercise;
 
 public class Developer extends Employee {
 

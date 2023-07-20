@@ -1,4 +1,4 @@
-package JavaOOP;
+package JavaCore_Progress_Exercise;
 
 public abstract class Employee {
 

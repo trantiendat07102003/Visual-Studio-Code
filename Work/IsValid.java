@@ -1,11 +1,37 @@
 package Work;
 
+import java.util.HashMap;
+import java.util.Stack;
+
 public class IsValid {
 
-    public boolean isValid(String s){
+    public boolean isValid(String s) {
+
+        HashMap<Character, Character> hashMap = new HashMap<Character, Character>();
+        hashMap.put(')', '(');
+        hashMap.put('}', '{');
+        hashMap.put(']', '[');
+        // Create stack data structure...
+        Stack<Character> stack = new Stack<Character>();
+        // Traverse each charater in input string...
+        for (int idx = 0; idx < s.length(); idx++) {
+            // If open parentheses are present, push it to stack...
+            if (s.charAt(idx) == '(' || s.charAt(idx) == '{' || s.charAt(idx) == '[') {
+                stack.push(s.charAt(idx));
+                continue;
+            }
+            // If the character is closing parentheses, check that the same type opening
+            // parentheses is being pushed to the stack or not...
+            // If not, we need to return false...
+            if (stack.size() == 0 || hashMap.get(s.charAt(idx)) != stack.pop()) {
+                return false;
+            }
+        }
+        // If the stack is empty, return true...
+        if (stack.size() == 0) {
+            return true;
+        }
         return false;
-        
-        
     }
-    
+
 }
